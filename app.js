@@ -1,16 +1,14 @@
 import express from "express";
 import libraryRouter from "./src/library/library.router.js";
-import { ErrorMiddleWare } from "./src/middlewares/error.middleware.js";
+import { ErrorMiddleWare } from "./src/common/middlewares/error.middleware.js";
+import morgan from "./src/common/middlewares/morgan.js";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use((req, res, next) => {
-  console.log("현재 시간: ", new Date().toLocaleString("ko-kr"));
-  next();
-});
+app.use(morgan);
 
 app.use("/library", libraryRouter);
 app.use((err, req, res, next) => {
