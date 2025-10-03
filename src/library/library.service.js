@@ -3,21 +3,12 @@ export class LibraryService {
     this.libraryRepository = libraryRepository;
   }
 
-  getBooks = async (pageNationDto) => {
-    const books = await this.libraryRepository.find(pageNationDto);
-    return {
-      data: books,
-      pagenation: {
-        page: pageNationDto.page,
-        pageges: pageNationDto.pages,
-      },
-    };
-  };
-
-  findBook = async (searchBookDto) => {
-    const book = await this.libraryRepository.findByBook(searchBookDto);
-    return {
-      data: book,
-    };
+  // 서울 구로구 도서 현황 조회
+  getBooks = async (pageNationDto, findBooksDto) => {
+    const books = await this.libraryRepository.find(
+      pageNationDto,
+      findBooksDto
+    );
+    return books;
   };
 }

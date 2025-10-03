@@ -9,12 +9,7 @@ const libraryController = new LibraryController(libraryService);
 
 const router = express.Router();
 
-router.get("", libraryController.get);
-
 // 서울 구로구 도서 현황 조회
-router.get("/seoul", libraryController.getBooks);
-
-// 서울 구로구 도서 검색
-router.get("/seoul/search", libraryController.findBook);
+router.get("", libraryController.getBooks);
 
 export default router;
