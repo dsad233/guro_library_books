@@ -1,6 +1,7 @@
 import express from "express";
 import libraryRouter from "./src/library/library.router.js";
 import { ErrorMiddleWare } from "./src/common/middlewares/error.middleware.js";
+import cors from "./src/common/middlewares/cors.js";
 import morgan from "./src/common/middlewares/morgan.js";
 
 const app = express();
@@ -8,6 +9,7 @@ const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors);
 app.use(morgan);
 
 app.use("/library", libraryRouter);
