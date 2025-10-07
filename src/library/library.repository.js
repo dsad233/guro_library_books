@@ -17,7 +17,7 @@ export class LibraryRepository {
         data: splice,
         pagenation: {
           page: pageNationDto.page,
-          pageges: pageNationDto.pages,
+          pages: pageNationDto.pages,
           totalPage: Math.ceil(result.length / pageNationDto.pages) + 1,
         }
       };
@@ -28,7 +28,7 @@ export class LibraryRepository {
         data: result,
         pagenation: {
           page: pageNationDto.page,
-          pageges: pageNationDto.pages,
+          pages: pageNationDto.pages,
           totalPage: Math.ceil(books['DATA'].length / pageNationDto.pages),
         }
       }
