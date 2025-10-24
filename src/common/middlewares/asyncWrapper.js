@@ -1,3 +1,3 @@
 export const asyncWrapper = (cb) => {
-  return (req, res, next) => cb(req, res, next).catch(next);
+  return async (req, res, next) => await cb(req, res, next).catch(next);
 };
